@@ -1,0 +1,1524 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap');
+/* osadzenie fontów z Google*/
+
+
+/* GLOBALNIE*/
+html{scroll-behavior: smooth;}
+	
+body{
+	/*width: 100%;/*tego nie dodajemy bo to może ograniczacz naturalną elastyczność kontenera body*/
+	font-family: 'Raleway', sans-serif;
+	background-color: #FFF;
+	/*overflow-x: hidden; /* Zapobiega poziomemu przewijaniu jeśli szerokość jest większa niż ekran */
+}
+section{
+	display: flex;/*robimy z sekcja flexboxa*/
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	
+	min-height: 90vh; /*każda sekcja ma z góry narzucone minimum 90% wys. okna przegl.*/ 
+}
+.zawartosc{
+	background-color: ;/*do podglądu - można usunąć w każdej chwili*/
+	max-width: 2000px;/*ograniczenie zawartości do max 1200px - możesz zmienić na więcej, np. 1400px*/
+}
+
+/*NAWIGACJA SMARTFON*/
+#burger{
+	background-color: #222;
+	color: white;
+	font-size: 3em;
+	padding: 0.2em;
+	position: fixed;
+	right: 0.5em;/*odsunięcie od prawej kraw.*/
+	top:0.5em;
+	cursor: pointer;
+}
+.nakladka{
+	width: 0;
+	height: 0;
+	background-color: rgba(15,15,15,0.9);
+	position: fixed;
+	z-index: 1;/*wyżej niż burger*/
+	transition: 1s;
+	right: 0;/*żeby szerokośc zmniejszała się od prawej strony*/
+	overflow: hidden;/*ukrywa wszystko co wewn nakładki*/
+	}
+.nakladka ul{
+	position: relative;
+	top: 20%;
+	text-align: center;
+}
+.nakladka ul a{
+	
+	text-decoration: none;
+	color: white;
+	font-size: 2em;
+	padding: 0.5em;
+	display: block;
+	transition: 1s;
+	
+}
+.nakladka ul a:hover{
+	background-color: white;
+	color: #222;
+}
+.zamknijX{
+	color: white;
+	text-decoration: none;
+	font-size: 3em;
+	padding: 0.3em;
+	display: block;
+	position: absolute;
+	right: 0.6em;/*odsunięcie od prawej kraw.*/
+	top:0.4em;
+}
+
+
+/*SEKCJE*/
+#gotuj-wygodnie{
+	background-color: black;/*każda sekcja ma mieć przypisany kolor, nie .zawartość*/
+}
+#gotuj-wygodnie .zawartosc {
+	color: white;
+}
+/*
+błędny selektor - article to element natywny HTML odwołujemy się do niego bez żadnego prefiksu, "." to prefiks dla dodanej do elementu klasy
+*/
+
+/* poprawne odwołanie do nagłówka h1*/
+#gotuj-wygodnie article h1{
+	font-size: 8vw; /*jednostki vw zamiast rem pozwolą na skalowanie się obiektu, dzięki czemu nie będzie wystawał poza szerokość okna przegl.*/
+	text-align: center;
+	font-weight: 800;
+	letter-spacing: 6.4px;
+	white-space: nowrap;
+}
+#gotuj-wygodnie article h2{
+	font-size: 3em;
+/*	font-style: normal; zbędne */
+	font-weight: 100;
+/*	line-height: normal; zbędne */
+	letter-spacing: 6.4px;
+	text-align: center;
+	margin-top: 2rem;
+}
+
+
+#opis-projektu{
+	padding: 0 9.5rem;
+}
+#opis-projektu .zawartosc{
+	color: black;
+}
+#opis-projektu article h1{
+   color: #DEDEDE;
+	font-size: 3em;
+	font-weight: 900;
+	letter-spacing: 2.9px; 
+	text-align: center;
+}
+#opis-projektu article p{
+	font-size: 20px;
+	line-height: 1.3em;
+	letter-spacing: 1.2px;
+	margin-top: 100px;
+	max-width: 900px;
+	
+}
+#opis-projektu article p span{
+	font-weight: 700;
+}
+
+
+#Informacje-o-projekcie{
+	background-color: black;
+	flex-direction: row;
+}
+#Informacje-o-projekcie .zawartosc, 
+#Informacje-o-projekcie img{
+	flex: 1;
+}
+.main-image {
+  width: 100%;
+}
+#Informacje-o-projekcie .zawartosc{
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	gap: 4vh 3vw;
+	background-color: ;
+	padding: 0 3vw;
+}
+/*	
+#Informacje-o-projekcie .zawartosc-prostokat{
+	height: 500px;
+	background-color: black;
+	align-items: center; 
+} nie wiem jak ustawić ten prostokąt, żeby na nim układały się wszytskie elementy
+GG - bez niego też jest ok, dodałem zawijanie zawartości flex-wrap i w szerokim są obok siebie, a w wąskim oknie pod sobą - trzeba zapewnić elastyczność*/
+#Informacje-o-projekcie article{
+	background-color: ;
+	gap: 0.875rem;
+	flex-direction: column;
+}
+#Informacje-o-projekcie article h1{
+	color: white;
+	font-size: 1em;
+	font-weight: 600;
+	letter-spacing: 0.80px;
+	padding-bottom: 1rem;
+}
+#Informacje-o-projekcie article h2{
+	color: white;
+	font-size: 2.125em;
+	font-weight: 900;
+	letter-spacing: 1.70px;
+}
+#Informacje-o-projekcie .tools-section {
+	align-items: center; 
+	display: flex;
+	/*position: relative;
+	top: 14px; - zamiast tych skomplikowanych rzeczy wystarczy do nagłówka na górze dodać padding-bottom, żeby oddalić to co pod nagłówkiem*/
+	gap: 11px;
+}
+
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tool img {
+  width: 48px; 
+  height: 48px; 
+  object-fit: cover; 
+}
+.tool .name {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25px;
+}
+
+
+#design-thinking{}
+#design-thinking h1{
+	font-size: 3rem;
+	padding-bottom: 3rem;
+	color: #DEDEDE;
+	font-weight: 900;
+	letter-spacing: 2.9px; 
+	margin-bottom: 50px;
+	margin-top: 50px;
+}
+#design-thinking .zawartosc{
+	max-width: 1200px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 3rem;
+	margin-bottom: 3rem;
+}
+#design-thinking article{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+#design-thinking article h3{
+	text-align: center;
+	margin-bottom: 1rem;
+}
+#design-thinking .DesignThinking-img{
+	height: 234px;
+	width: 270px;
+}
+
+
+#grupa-docelowa{
+	background-color: black;
+	padding: 0 9rem;
+}
+#grupa-docelowa .zawartosc{
+	color: white;
+}
+#grupa-docelowa h3{
+	color: #484848;
+	font-size: 3.625em;
+	font-weight: 900;
+	letter-spacing: 2.9px; 
+	text-align: center;
+	padding: 50px 0;
+}
+#grupa-docelowa .article-grupa-doelowa{
+	display: flex;
+	gap: 2rem;	
+}
+#grupa-docelowa article{
+	flex: 1; /*żeby wyrównać szer.*/
+}
+#grupa-docelowa article h1{
+	font-size: 1.5em;
+	font-weight: 800;
+	line-height: 32px;
+	letter-spacing: 1.2px;
+}
+#grupa-docelowa article h2{
+	leading-trim: both;
+	text-edge: cap;
+	font-size: 24px;
+	font-weight: 300;
+	letter-spacing: 1.2px;
+}
+
+
+/* napis 40-55 lat ma być taki sam jak h1
+#grupa-docelowa article h1 span{
+	font-size: 1.5em;
+	font-weight: 800;
+	line-height: 32px;
+	letter-spacing: 1.2px;
+}  
+usunąłem span i cyfry są wielkości h1*/
+
+/*#grupa-docelowa .klienci{
+	width: 667px;
+	height: 125px;
+	border-radius: 30px;
+	background-color: white;
+	color: black;
+	padding: 50px 0px 0px 101px;
+}
+*/
+
+#wnioski-z-analityki-biznesowej{ 
+	/*jak zmienić żeby ta sekcja miała wysokość 600px*/
+	
+	/*na samej górze sekcje mają ustawioną min-height, zatem trzeba ten parametr tutaj nadpisać*/
+	min-height: 600px;
+}
+#wnioski-z-analityki-biznesowej .zawartosc{
+	height: 600px;
+}
+#wnioski-z-analityki-biznesowej h1{
+	color: #DEDEDE;
+	font-size: 3em;
+	font-weight: 900;
+	letter-spacing: 2.9px; 
+	text-align: center;
+	padding: 50px;
+}
+#wnioski-z-analityki-biznesowej .article-wnioski{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	background-color: ;
+}
+#wnioski-z-analityki-biznesowej .article-wnioski article{
+	background: url("../images/czarny-heksagon.png") center;/*hex jako tło elementu - wtedy łatwiej ustawić napis na nich, a nie jako img obok napisu*/
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-color: ;
+	flex: 1;
+	height: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#wnioski-z-analityki-biznesowej article p{
+	color: white;
+	align-content: center;/*nie mogę wyśrodkować zdania*/
+	text-align: center;/*text najlepiej się środkuje wyrównaniem tekstu*/
+	font-size: 1.5em;
+	font-weight: 600;
+	letter-spacing: 1.2px;
+	background-color:;
+	padding-right: 3rem;
+	padding-bottom: 2rem;
+}
+
+
+#komentarze{
+	background-color: black;
+	/*ta sekcja mam mieć 500px*/
+	min-height: 500px;
+	justify-content: flex-start;
+	padding: 0 3rem 3rem 3rem;
+}
+#komentarze .zawartosc{
+	background-color: white;
+	color: black;
+	padding: 3rem;
+}
+
+#komentarze ol li{
+	font-size: 1.5rem;
+  	letter-spacing: 1.2px;
+	font-weight: 400;
+}
+#komentarze li{ /*chciałabym żeby między komentarzami był odstęp 35px, a paragraph spacing na 10px*/
+	line-height: 3rem;
+	gap: 35px;
+	white-space: normal;
+}
+#komentarze li strong{
+	font-weight: 600;
+}
+#komentarze li span{
+	font-weight: 300;
+}
+
+#zbieranie-wymagan-biznesowych{
+	background-color: black;
+}
+#zbieranie-wymagan-biznesowych .zawartosc{
+	color: white;
+	display: flex;
+	flex-direction: column;
+    justify-content: flex-start;
+	flex-wrap: wrap;
+}
+#zbieranie-wymagan-biznesowych article{
+	align-items: flex-start; /*nie wiem jak ustawić od samej góry*/
+	align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+#zbieranie-wymagan-biznesowych article h1{
+	color: #484848;
+	font-size: 3em;
+	font-weight: 900;
+	letter-spacing: 2.9px; 
+	text-align: center;
+	padding: 50px;
+
+}
+
+#zbieranie-wymagan-biznesowych article h2{
+	text-align: center;
+	font-size: 3em;
+	font-weight: 700;
+	letter-spacing: 2.4px;
+	top: 100px;
+}
+
+#zbieranie-wymagan-biznesowych article h3{
+text-align: center;
+font-size: 1em;
+font-weight: 600;
+line-height: 25px;
+letter-spacing: 0.8px;
+}
+
+#design-process-opis{
+	background-color: black;
+	min-height: 255px;
+}
+
+#design-process-opis .zawartosc{
+	background-color: white;
+	color: black;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	
+}
+
+#design-process-opis ol{
+	display: flex;
+	padding: 1.5rem;
+	flex-direction: column;
+}
+
+#design-process-opis li{
+	font-size: 1.5rem;
+  	letter-spacing: 1.2px;
+	font-weight: 400;
+	line-height: 3rem;
+	gap: 32rem;
+	white-space: normal;
+	
+}
+
+#zapoznanie-sie{
+	min-height: 250px;
+}
+
+#zapoznanie-sie{
+	background-color: white;
+	color: black;
+		
+}
+
+#zapoznanie-sie h1{
+font-size: 3vw;
+font-weight: 500;
+letter-spacing: 2.4px;
+align-items: center;
+
+}
+
+#zapoznanie-sie strong{
+	font-weight: 700;
+}
+
+#Analiza-konkurencji{
+	background-color: black;
+}
+
+#Analiza-konkurencji .zawartosc{
+	color: white;
+	
+}
+
+#Analiza-konkurencji .firmy-img-tlo{
+	width: 1210px;
+height: 103px;
+	background-color: white;
+}
+
+#Analiza-konkurencji .firmy-img{
+	position: relative;
+	align-items: center;
+	padding-right: 20px;
+	display: flex;
+width: 35.125rem;
+justify-content: center;
+	padding-left: 39rem;
+		top: 38px;
+}
+
+#Analiza-konkurencji article{ /*nie wiem jak ustawić żeby elementy w article były względem siebie wyśrodkowane, a nie pod sobą*/
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+#Analiza-konkurencji h1{
+	
+font-size: 1em;
+
+font-weight: 700;
+line-height: 25px; 
+letter-spacing: 0.8px;
+gap: 5.375rem;
+
+}
+
+#Analiza-konkurencji .konkurencja-img{
+		align-items: center;
+	padding-right: 1.25rem;
+	display: flex;
+width: 35.125rem;
+justify-content: center;
+	padding-left: 39.188rem;
+}
+
+#Analiza-konkurencji hr{
+	top: 1.875rem;
+	height: 1px;
+}
+
+
+#dane-z-heat-map{
+	background-color: white;
+}
+
+#dane-z-heat-map .zawartosc{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+#dane-z-heat-map h1{
+	    color: #DEDEDE;
+    font-size: 3em;
+    font-weight: 900;
+    letter-spacing: 2.9px;
+    text-align: center;
+    padding: 3.125rem;
+}
+
+#dane-z-heat-map article img{
+padding: 1.875rem;
+	
+}
+
+#IDI{
+	background-color: white;
+	min-height: 500px;
+}
+
+#IDI .zawartosc{
+	color: black;
+	
+}
+
+#IDI h1{
+	 color: #DEDEDE;
+    font-size: 3em;
+    font-weight: 900;
+    letter-spacing: 2.9px;
+    text-align: center;
+    padding: 3.125rem;
+}
+
+#IDI h2{
+
+font-size: 1.5em;
+font-weight: 400;
+letter-spacing: 1.2px;
+}
+
+#pytania{
+	background-color: black;
+}
+
+#pytania .zawartosc{
+	min-height: 1150px;
+	position: relative;
+	color: white;
+	top: 2.5rem;
+	bottom: 150px;
+}
+
+#pytania article {
+	display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+gap: 1.25rem;
+padding: 1.25rem;
+	
+		
+}
+
+#pytania h1{
+	font-size: 1.5em;
+font-weight: 300;
+letter-spacing: 1.2px;
+}
+
+#pytania h1 strong{
+	font-weight: 600;
+}
+
+#pytania ol{
+	    list-style: circle;
+	display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+gap: 1.25rem;
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
+}
+
+#pytania li{
+		font-size: 1.5em;
+font-weight: 300;
+letter-spacing: 1.2px;
+}
+
+#pytania li strong{
+	font-weight: 600;
+}
+
+
+#trzy-kluczowe-wnioski{
+	background-color: white;
+	min-height: 600px;
+}
+
+#trzy-kluczowe-wnioski .zawartosc{
+	height: 600px;
+}
+
+#trzy-kluczowe-wnioski h1{
+color: #DEDEDE;
+	font-size: 3em;
+	font-weight: 900;
+	letter-spacing: 2.9px; 
+	text-align: center;
+	padding: 3.125rem;
+}
+#trzy-kluczowe-wnioski .article-wnioski{
+	    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: blue;
+}
+#trzy-kluczowe-wnioski .article-wnioski article{
+	    background: url("../images/czarny-heksagon.png") center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: green;
+    flex: 1;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#trzy-kluczowe-wnioski article p{
+	color: white;
+	align-content: center;
+	text-align: center;
+	font-size: 1.5em;
+	font-weight: 600;
+	letter-spacing: 1.2px;
+	padding-right: 3rem;
+	padding-bottom: 2rem;
+}
+
+
+#persona{
+	background-color: white;
+	min-height: 1000px;
+	 background: url("../images/prsona-background.png") center;
+	    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#persona .zawartosc{
+	height: 1000px;
+	color: black;
+	
+}
+
+#persona h1{
+	color: #DEDEDE;
+	font-size: 3em;
+	font-weight: 900;
+	letter-spacing: 2.9px; 
+	text-align: center;
+	padding-bottom: 9.375rem;
+	
+}
+
+#persona h2{
+	font-weight: 900;
+	font-size: 1em;
+	letter-spacing: 1.5px;
+	padding-bottom: 1.5rem;
+}
+
+#persona h3{
+	font-weight: 700;
+	letter-spacing: 1.2px;
+	font-size: 1em;
+}
+
+
+
+#persona .perosna-gorna-czesc{
+	display: flex;
+	background-color: white;
+	padding-right: 1.5rem;
+	left: 14.375rem;
+	position: relative;
+	padding-top: 3.125rem;
+	padding-left: 2.5rem;
+}
+
+
+
+#persona .glowna-persona{
+	display: flex;
+	flex-direction: column;
+	gap: 0.625rem;
+	
+}
+
+#persona .glowna-persona article{
+	display: flex;
+	gap: 0.625rem;
+	font-weight: 600;
+	width: 18.75rem;
+}
+
+
+#persona .Needs-Points article{
+	padding-bottom: 1.25rem;
+}
+
+#persona .Needs-Points h3{
+	font-weight: 700;
+	letter-spacing: 1.2px;
+	font-size: 1em;
+}
+
+
+#persona .Needs-Points h5{
+	font-weight: 400;
+	letter-spacing: 1.2px;
+	font-size: 1em;
+}
+
+
+#persona .pasjonata{
+	background-color: white;
+	padding-right: 1.5rem;
+	left: 14.375rem;
+	position: relative;
+	padding-bottom: 3.438rem;
+	padding-left: 2.5rem;
+	
+}
+
+#persona .pasjonata h5{
+	font-weight: 400;
+	letter-spacing: 1.2px;
+	font-size: 1em;
+}
+
+#persona .pasjonata strong{
+	font-weight: 600;
+}
+
+/*
+#mapa-empatii{
+	background-color: white;
+	min-height: 1400px;
+}
+
+#mapa-empatii .zawartosc{
+	color: black;
+	height: 1400px;
+	align-items: center;
+	text-align: center;
+
+}
+
+#mapa-empatii h1{
+	color: #DEDEDE;
+	font-size: 3em;
+	font-weight: 900;
+	letter-spacing: 2.9px; 
+	text-align: center;
+	padding-bottom: 50px;
+}
+
+#mapa-empatii .see-hear {
+	display: flex;
+	justify-content: center;
+	background-color: coral;
+	gap: 300px;
+	padding-bottom: 100px;
+	
+}
+
+#mapa-empatii .say-pains{
+	display: flex;
+		justify-content: center;
+	background-color: coral;
+	gap: 300px;
+	padding-bottom: 100px;
+}
+
+#mapa-empatii .gains-think{
+	display: flex;
+		justify-content: center;
+	background-color: coral;
+	gap: 300px;
+	padding-bottom: 100px;
+}
+
+#mapa-empatii h2{
+	font-weight: 800;
+	letter-spacing: 7.5px;
+	font-size: 3.125em;
+	padding-bottom: 50px;
+	
+}
+
+#mapa-empatii h3{
+	font-weight: 400;
+	letter-spacing: 1.2px;
+	font-size: 1em;
+}
+
+*/
+
+#mapa{
+	background-color: white;
+	min-height: 1400px;
+	
+}
+
+#mapa .zawartosc{
+	color: black;
+	height: 1400px;	
+	display: flex;
+	
+	
+}
+
+#mapa article{
+	width: 38.938rem;
+	height: 17.5rem;
+	line-height: 1rem;
+	white-space: normal;
+	
+	
+	
+}
+
+
+#mapa h1{
+	color: #DEDEDE;
+	font-size: 3em;
+	font-weight: 900;
+	letter-spacing: 2.9px; 
+	text-align: center;
+	padding-bottom: 3.125rem;
+		align-items: center;
+	text-align: center;
+}
+
+#mapa .lewa-strona{
+	align-items: center;
+	text-align: center;
+	
+}
+
+#mapa .prawa-strona{
+	align-items: center;
+	text-align: center;
+
+}
+
+#mapa h2{
+	font-weight: 800;
+	letter-spacing: 7.5px;
+	font-size: 3.125em;
+	padding-bottom: 3.125rem;
+}
+
+#mapa h3{
+		font-weight: 400;
+	letter-spacing: 1.2px;
+	font-size: 1em;
+	padding-bottom: 0.625rem;
+}
+
+#lo-fi{
+	background-color: black;
+}
+
+#lo-fi .zawartosc{
+	color: white;
+}
+
+
+#lo-fi h1{
+	color: #484848;
+	font-size: 3em;
+	font-weight: 900;
+	letter-spacing: 2.9px; 
+	text-align: center;
+	padding: 3.125rem;
+}
+
+
+#lo-fi h2{
+	font-weight: 600;
+	font-size: 1em;
+	letter-spacing: 1.2px;
+	right: 5.625rem;
+	position: relative;
+}
+
+#lo-fi .lo-fi-img{
+	width: 33.594rem;
+height: 128rem;
+}
+
+#lo-fi article{
+	display: flex;
+}
+
+#lo-fi .lo-fi-opisy-all{
+	display: flex;
+	flex-direction: column;
+}
+
+#lo-fi .lo-fi-opisy1{
+	display: flex;
+	flex-direction: column;
+	gap: 1.563rem;
+	padding-top: 14.375rem;
+}
+
+#lo-fi .lo-fi-opisy2{
+	padding-top: 12.5rem;
+}
+
+
+#lo-fi .lo-fi-opisy3{
+	padding-top: 12.5rem;
+}
+
+#lo-fi .lo-fi-opisy4{
+	padding-top: 12.5rem;
+}
+
+#lo-fi .lo-fi-opisy5{
+	padding-top: 12.5rem;
+	
+	
+}
+
+#lo-fi .lo-fi-opisy6{
+	padding-top: 25rem;
+}
+
+#lo-fi ol {
+	display: flex;
+	flex-direction: column;
+	font-weight: 300;
+	font-size: 1em;
+	letter-spacing: 0.8px;
+	padding-left: 1.25rem;
+}
+
+
+#lo-fi li strong{
+	font-weight: 700;
+}
+
+
+#testy-uzytecznosci{
+	background-color: white;
+	min-height: 900px;
+}
+
+
+#testy-uzytecznosci .zawartosc{
+	color: black;
+}
+
+#testy-uzytecznosci h1{
+		color: #DEDEDE;
+	font-size: 3em;
+	font-weight: 900;
+	letter-spacing: 2.9px; 
+	text-align: center;
+	padding-bottom: 6.25rem;
+}
+
+#testy-uzytecznosci .testy-uzytecznosci-tekst{
+	padding-bottom: 6.25rem;
+}
+
+#testy-uzytecznosci p{
+	font-weight: 600;
+	font-size: 3em;
+	letter-spacing: 2.4px;
+	
+}
+
+#testy-uzytecznosci p strong{
+	font-weight: 700;
+}
+
+#testy-uzytecznosci article{
+	display: flex;
+	
+	background-color: black;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+	gap: 12.5rem;
+	padding: 3.125rem;
+}
+
+#testy-uzytecznosci ol{
+	color: white;
+	font-weight: 700;
+letter-spacing: 0.8px;
+	font-size: 1em;
+}
+
+
+#przed-po{
+	background-color: black;
+	min-height: 1350px;
+}
+
+#przed-po .zawartosc{
+	color: white;
+	display: flex;
+	height: 1350px;
+	gap: 6.25rem;
+}
+
+#przed-po h1{
+	font-weight: 600;
+	font-size: 3.625em;
+	line-height: 1.563rem;
+letter-spacing: 2.9px;
+}
+
+#przed-po article{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 1.563rem;
+}
+
+#przed-po .przed{
+	position: relative;
+	top: 10rem;
+}
+
+#przed-po .przed-img{
+	width: 31.25rem;
+height: 20.188rem;
+	
+}
+
+#przed-po .strzalka-img{
+	width: 16.625rem;
+height: 16.625rem;
+	top: 21.875rem;
+	position: relative;
+}
+
+
+#przed-po .po{
+	top: 26.25rem;
+	position: relative;
+}
+
+#przed-po .po-img{
+	width: 36.938rem;
+height: 41.75rem;
+}
+
+#hi-fi-prototyp{
+	background-color: black;
+	min-height: 2300px;
+}
+
+#hi-fi-prototyp .zawartosc{
+height: 2300px;
+}
+
+
+#hi-fi-prototyp h1{
+		color: #484848;
+	font-size: 3em;
+	font-weight: 900;
+	letter-spacing: 2.9px; 
+	text-align: center;
+	padding: 3.125rem;
+}
+
+
+#hi-fi-prototyp .hi-fi-img{
+	width: 78rem;
+height: 126.75rem;
+	align-items: center;
+	display: flex;
+}
+
+#strona-home{
+	background-color: black;
+	min-height: 3200px;
+}
+
+#strona-home{
+	color: white;
+	height: 3200px;
+}
+
+#strona-home h1{
+		color: #484848;
+	font-size: 3em;
+	font-weight: 900;
+	letter-spacing: 2.9px; 
+	text-align: center;
+	padding: 3.125rem;
+}
+
+#strona-home .strona-home1 {
+	display: flex;
+	    justify-content: center;
+	
+}
+
+#strona-home .strona-home1-img{
+	width: 44.375rem;
+height: 63.125rem;
+transform: rotate(17deg);
+padding-top: 6.25rem;
+	margin-left: 9.375rem;
+}
+
+#strona-home .sh-opisy1{
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding-top: 45.625rem;
+}
+
+#strona-home  .sh-opisy1 article{
+	display: flex;
+	gap:6.25rem;
+	padding-bottom: 16.875rem;
+	
+		
+	
+}
+
+
+#strona-home  article p{
+	font-weight: 600;
+	letter-spacing: 1.2px;
+	
+}
+
+#strona-home  .strona-home2 {
+	display: flex;
+	justify-content: center;
+	
+}
+
+#strona-home .strona-home2-img{
+	width: 44.375rem;
+
+transform: rotate(17deg);
+padding-top: 6.25rem;
+	margin-right: 9.375rem;
+}
+
+
+
+#strona-home  .sh-opisy2{
+		display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding-top: 9.375rem;	
+	padding-left: 25rem;
+}
+
+#strona-home  .sh-opisy2 article{
+display: inline-flex;
+align-items: center;
+gap: 2rem;
+	width: 30rem;
+	padding-bottom: 21.875rem;
+}
+
+
+#strona-home .sh-opisy2 article p{
+	width: 24.375rem;
+}
+
+#strona-home .sh-opisy2 ol article{
+	display: inline-flex;
+align-items: center;
+gap: 2rem;
+	width: 30rem;
+	padding-bottom: 2rem;
+	top: -9.375rem;
+	position: relative;	
+}
+
+
+#refleksje-po-projekcie{
+	background-color: white;
+	min-height: 900px;
+}
+
+#refleksje-po-projekcie .zawartosc{
+	color: black;
+	height: 900px;
+	top: 6.25rem;
+	display: flex;
+	position: relative;
+	flex-direction: column;
+}
+
+#refleksje-po-projekcie h1{
+	    color: #DEDEDE;
+    font-size: 3em;
+    font-weight: 900;
+    letter-spacing: 2.9px;
+    text-align: center;
+	margin-bottom: 100px;
+}
+
+#refleksje-po-projekcie article{
+	display: flex;
+	gap: 1.25rem;
+	position: relative;
+	flex-direction: column;
+	padding-bottom: 3.125rem;
+	text-align: left;
+}
+
+#refleksje-po-projekcie article p{
+	font-weight: 700;
+letter-spacing: 1.2px;
+	font-size: 1em;
+	padding-bottom: 1.25rem;
+}
+
+#refleksje-po-projekcie article li{
+	font-weight: 400;
+}
+
+#kontakt{
+	background-color: white;
+	min-height: 700px;
+}
+
+#kontakt .zawartosc{
+	color: black;
+	height: 700px;
+	display: flex;
+	position: relative;
+	flex-direction: column;
+}
+
+#kontakt h1{
+	font-weight: 900;
+	font-size: 3em;
+	text-align: center;
+	justify-content: center;
+	
+}
+
+#kontakt .kontakt-lewa-prawa{
+	display: flex;
+	margin-top: 3.125rem;
+	
+}
+
+#kontakt .kontakt-lewa{
+	display: inline-flex;
+	gap: 1.25rem;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+	margin-right: 6.25rem;
+}
+
+
+#kontakt .telefon {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	text-align: left;
+	
+}
+
+#kontakt .miejsce {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	text-align: left;
+	
+}
+
+
+#kontakt .mail {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	text-align: left;
+}
+
+#kontakt .telefon-img{
+	width: 1.875rem;
+	height: 1.875rem;
+}
+
+#kontakt .miejsce-img{
+		width: 1.875rem;
+	height: 1.875rem;
+}
+
+
+#kontakt .mail-img{
+		width: 1.875rem;
+	height: 1.875rem;
+}
+
+#kontakt h2{
+	font-weight: 600;
+	font-size: 1em;
+	
+}
+
+#kontakt h3{
+	font-weight: 700;
+	font-size: 1em;
+}
+
+#kontakt ol{
+	display: flex;
+	padding: 1.25rem;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.625rem;
+	border-left: 1px;
+	
+}
+
+#kontakt hr{
+	width: 1px;
+	height: 4.875rem;
+	margin: 0;
+}
+
+#kontakt .kontakt-lewa-prawa{
+	margin: 3rem;
+}
+
+
+#kontakt .kontakt-prawa{
+
+}
+
+#kontakt .kontakt-prawa h1{
+	color: rgba(96, 96, 96, 0.70);
+	font-size: 1rem;
+	font-weight: 400;
+	width: 18.75rem;
+	height: 3.625rem;
+	justify-content: center;
+	border: 0.5px solid rgba(68, 17, 68, 0.70);
+	display: flex;
+	flex-direction: column;
+	padding-left: 1.25rem;
+	text-align: left;
+	
+}
+
+#kontakt .kontakt-lewa-prawa article{
+	display: flex;
+	gap: 1.25rem;
+	margin-bottom: 1.25rem;
+}
+
+#kontakt .kontakt-lewa-prawa p{
+	width: 40rem;
+	height: 3.125rem;
+	border: 0.5px solid rgba(68, 17, 68, 0.70);
+	color: rgba(96, 96, 96, 0.70);
+	font-size: 1rem;
+	font-weight: 400;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	padding-left: 1.25rem;
+	gap: 1.25rem;
+	margin-bottom: 1.25rem;
+}
+
+#kontakt .kontakt-lewa-prawa h4{
+	height: 11.25rem;
+	width: 40rem;
+	border: 0.5px solid rgba(68, 17, 68, 0.70);
+	color: rgba(96, 96, 96, 0.70);
+	font-size: 1rem;
+	font-weight: 400;
+	display: flex;
+	flex-direction: column;
+	padding-left: 1.25rem;
+	padding-top: 1.25rem;
+	gap: 1.25rem;
+	margin-bottom: 1.25;
+}
+
+
+#kontakt h5{
+	font-size: 1.875rem;
+	font-weight: 600;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	width: 15rem;
+	height: 5rem;
+	background-color: #484848;
+	color: white;
+	align-content: center;
+	flex-wrap: wrap;
+	margin-left: 58.125rem;
+}
+
+
+
+#footer{
+	background-color: black;
+	min-height: 420px;
+}
+
+#footer .zawartosc{
+	color: white;
+	gap: 2rem;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	
+	
+}
+
+#footer article h1{
+	font-weight: 700;
+	font-size: 3em;
+	padding-bottom: 2rem;
+}
+
+#footer  article h2{
+	font-weight: 400;
+	font-size: 1.125em;
+}
+
+#footer article img{
+	padding: 1.25rem;
+}
+
+#footer .social-media-img{
+
+	height: 4.375rem;
+	width: 4.375rem;
+}
+
+
+#stopka{
+	background-color: white;
+	min-height: 100px;
+}
+
+#stopka .zawartosc{
+	height: 100px;
+	display: flex;
+	justify-content: center;
+align-items: center;
+}
+
+#stopka h1{
+	font-weight: 500;
+	letter-spacing: 0.8px;
+	font-size: 1em;
+	
+}
+
+
+
+
+
+
